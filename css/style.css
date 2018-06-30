@@ -24,14 +24,14 @@
 /* 공통 헤더 */
 
 .header {
-    background: #lime;
+    background: lime;
 }
 
 
 /* 공통 네비게이션 */
 
 .navigation {
-    background: #aqua;
+    background: aqua;
     height: 10vh;
 }
 
@@ -39,35 +39,35 @@
 /*공통 메인*/
 
 .main {
-    background: #orange;
+    background: orange;
     height: 70vh;
 }
 
 .recommend-book {
-    background: #yellow;
+    background: yellow;
 }
 
 .news {
-    background: #brown;
+    background: brown;
 }
 
 .board {
-    background: #skyblue;
+    background: skyblue;
 }
 
 .favorite-site {
-    background: #teal;
+    background: teal;
 }
 
 . twitter {
-    background: #tomato;
+    background: tomato;
 }
 
 
 /*공통 푸터*/
 
 .footer {
-    background: #violet;
+    background: violet;
     height: 10vh;
 }
 
