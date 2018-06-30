@@ -1,0 +1,107 @@
+@charset "UTF-8";
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+.header,
+.main,
+.footer {
+    width: 1000px;
+    margin: 0 auto;
+}
+
+.header {
+    background: lime;
+}
+
+
+/*메인 콘텐츠 레이아웃 */
+
+
+/* .main {
+    width: 1000px;
+    margin: 0 auto;
+    /*overflow: hidden;  플로트 요소에서 잃어버린 메인의 높이를 찾아주는 코드*/
+
+
+/*height: 600px; 가장 비추*/
+
+background: yellow;
+
+}
+*/ .main>* {
+    border: 1px solid blue;
+    height: 300px;
+}
+.main::before {
+    content: "첫번째 가상요소 박스";
+    display: block;
+    clear: both;
+    background: grey;
+}
+.main::after {
+    content: "마지막 가상요소 박스";
+    display: block;
+    clear: both;
+    background: grey;
+}
+
+/*.clearfix {
+    height: 0!important;
+    clear: both;
+}*/
+.recommend-book {
+    width: 320px;
+    float: left;
+    margin-right: 20px;
+    background: #000;
+}
+.news {
+    width: 660px;
+    float: right;
+    background: red;
+}
+.board {
+    width: 320px;
+    float: left;
+    background: olive;
+}
+.favorite-site {
+    width: 235px;
+    float: right;
+    margin-left: 20px;
+    background: violet;
+}
+.twitter {
+    width: 405px;
+    background: skyblue;
+    float: left;
+    margin-left: 20px;
+}
+.footer {
+    background: lime;
+}
+.box {
+    width: 500px;
+    background: yellow;
+    border: 5px solid red;
+    font-size: 30px;
+}
+.box1 {
+    background: rgba(0, 255, 0, 0.2);
+    float: right;
+}
+.box3 {
+    background: rgba(255, 0, 0, 0.5);
+    float: right;
+}
+.box4 {
+    background: pink;
+    float: left;
+    width: 300px;
+}
+.box2 {
+    background: rgba(0, 0, 255, 0.5);
+}
