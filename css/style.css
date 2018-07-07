@@ -1,7 +1,6 @@
 @charset "utf-8";
 @import url(normalize.css);
 @import url(fonts.css);
-<<<<<<< HEAD
 
 /* 박스 공통 */
 
@@ -114,32 +113,16 @@ figure,
 footer,
 header,
 hgroup,
-main
-/* 메인 추가해야 함 */
-
+main,
 menu,
 nav,
 section {
     display: block;
 }
 
-
-/* body {
-    line-height: 1;}
-    */
-
-
-/* 한글에서는 라인하이트로 1은 적합하지 않음.  */
-
-
-/* ol, */
-
 ul {
     list-style: none;
 }
-
-
-/* ol태그의 스타일을 없애면 몇번째 목록인지 읽어주지 않음. */
 
 blockquote,
 q {
@@ -160,7 +143,7 @@ table {
 }
 
 
-/* 하이퍼링크 스타일*/
+/* 하이퍼 링크 스타일 */
 
 a {
     color: inherit;
@@ -170,12 +153,36 @@ a {
 body {
     color: #181818;
     font-family: 'Noto Sans Regular', sans-serif;
-    /* 앞에는 폰트패밀리, 뒤에는 제너릭 패밀리 */
 }
 
 
-/*  공통 레이아웃 */
+/* 가상 요소를 활용한 그리드 설정 */
 
+
+/* body::after {
+    content: "가상요소를 활용하여 추가한 텍스트";
+    background: repeating-linear-gradient(to right, rgba(255, 0, 0, 0.5), rgba(255, 0, 0, 0.5) 65px, transparent 65px, transparent 85px), repeating-linear-gradient(to bottom, rgba(0, 0, 255, 0.5), rgba(0, 0, 255, 0.5) 1px, transparent 1px, transparent 16px);
+    background-color: transparent;
+    color: #fff;
+    width: 1000px;
+    /* margin: 0 auto; - 부모가 relative일때만 적용됨. 단독 absolute에서는 쓸 수 없음 */
+
+
+/* height: 100vh;
+    transform: translateX(-50%); */
+
+
+/* 레이어 가운데 오도록 하는 것. */
+
+
+/* position: absolute;
+    top: 0;
+    left: 50%; */
+
+
+}
+*/
+/* 공통 레이아웃 */
 .header,
 .navigation,
 .main,
@@ -183,300 +190,152 @@ body {
     width: 100%;
 }
 
-
 /* 공통 헤더 */
-
 .header {
     background: lime;
 }
 
-
-/* 공통 네비게이션 */
-
+/* 공통 내비게이션 */
 .navigation {
     background: aqua;
     height: 10vh;
 }
 
-
-/*공통 메인*/
-
+/* 공통 메인 */
 .main {
     background: orange;
     height: 70vh;
 }
-
 .recommend-book {
     background: yellow;
 }
-
 .news {
     background: brown;
 }
-
 .board {
     background: skyblue;
 }
-
 .favorite-site {
     background: teal;
 }
-
-. twitter {
+.twitter {
     background: tomato;
 }
 
-
-/*공통 푸터*/
-
+/* 공통 푸터 */
 .footer {
     background: violet;
     height: 10vh;
 }
-
-@media screen and (max-width:999px) {
-    /* 모바일 헤더*/
-    /* 모바일 네비게이션*/
-    /* 모바일 메인*/
+@media screen and (max-width: 999px) {
+    /* 모바일 그리드 설정 - 4col */
+    
+    .grid-show {
+        widows: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: grid;
+        grid-template-columns: 0px repeat(4, 1fr) 0px;
+        grid-template-rows: 100vh;
+        grid-column-gap: 20px;
+    }
+    
+    .grid-show .grid-unit {
+        background-color: rgba(0, 0, 255, 0.5);
+    }
+    
+    .grid-show .grid-unit:nth-child(1),
+    .grid-show .grid-unit:nth-child(6) {
+        width: 0px;
+    }
+    /* 모바일 헤더 */
+    /* 모바일 내비게이션 */
+    /* 모바일 메인 */
+    
     .main {
         display: flex;
         flex-direction: column;
-        /* justify-content: flex-start;
-        justify-content: center;
-        justify-content: space-evenly;
-        align-items: flex-end;
-        align-content: center;
-        flex-wrap: wrap;*/
     }
-    /*flex 학습*/
-    /*   .main>* {
-        height: 10vh;
-        width: 50%;
-    }
-    .news {
-        order: 1;
-        flex-grow: 1;
-    }
-    .twitter {
-        order: -1;
-    }*/
-    /* 모바일 푸터*/
+    /* 모바일 푸터 */
 }
-
-@media screen and (min-width:1000px) {
+@media screen and (min-width: 1000px) {
+    /* 데스크탑 그리드 - 12col */
+    
+    .grid-show {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        display: grid;
+        grid-template-columns: repeat(12, 65px);
+        grid-template-rows: 100vh;
+        grid-column-gap: 20px;
+    }
+    
+    .grid-show .grid-unit {
+        background-color: rgba(255, 0, 0, 0.5);
+    }
     /* 웹카페 데스크탑 레이아웃 */
+    
     .header,
     .navigation,
     .main,
     .footer {
         width: 1000px;
         margin: 0 auto;
-        /* background: yellow;*/
     }
     /* 데스크탑 헤더 */
+    
     .header {}
     /* 데스크탑 내비게이션 */
+    
     .nav-container {
         background-color: #988574;
     }
+    
     .navigation {
         height: 10vh;
     }
     /* 데스크탑 메인 콘텐츠 */
+    
     .main {
         height: 70vh;
         display: flex;
         justify-content: space-between;
         flex-wrap: wrap;
     }
+    
     .main>* {
         flex: auto 0 1;
     }
+    
     .recommend-book {
         flex-basis: 320px;
     }
+    
     .news {
         flex-basis: 660px;
     }
+    
     .board {
         flex-basis: 320px;
     }
+    
     .favorite-site {
         flex-basis: 235px;
     }
+    
     .twitter {
         flex-basis: 405px;
     }
     /* 데스크탑 푸터 */
+    
     .footer-container {
         background-color: #988574;
     }
+    
     .footer {
         height: 10vh;
     }
 }
-=======
-/* 박스 공통 */
-*, *::before, *::after{
-  box-sizing: border-box;
-}
-/* 스타일 초기화 */
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	font: inherit;
-	vertical-align: baseline;
-}
-/* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
-footer, header, hgroup, main, menu, nav, section {
-	display: block;
-}
-ul {
-	list-style: none;
-}
-blockquote, q {
-	quotes: none;
-}
-blockquote:before, blockquote:after,
-q:before, q:after {
-	content: '';
-	content: none;
-}
-table {
-	border-collapse: collapse;
-	border-spacing: 0;
-}
-/* 하이퍼 링크 스타일 */
-a{
-  color: inherit;
-  text-decoration: none;
-}
-body{
-  color: #181818;
-  font-family: 'Noto Sans Regular', sans-serif;
-}
-/* 공통 레이아웃 */
-.header, .navigation, .main, .footer{
-  width: 100%;
-}
-/* 공통 헤더 */
-.header{
-  background: lime;
-}
-/* 공통 내비게이션 */
-.navigation{
-  background: aqua;
-  height: 10vh;
-}
-/* 공통 메인 */
-.main{
-  background: orange;
-  height: 70vh;
-}
-.recommend-book{
-  background: yellow;
-}
-.news{
-  background: brown;
-}
-.board{
-  background: skyblue;
-}
-.favorite-site{
-  background: teal;
-}
-.twitter{
-  background: tomato;
-}
-/* 공통 푸터 */
-.footer{
-  background: violet;
-  height: 10vh;
-}
-@media screen and (max-width: 999px){
-  /* 모바일 헤더 */
-
-  /* 모바일 내비게이션 */
-
-  /* 모바일 메인 */
-  .main{
-    display: flex;
-    flex-direction: column;
-
-  }
-  /* 모바일 푸터 */
-}
-
-
-@media screen and (min-width: 1000px) {
-  /* 웹카페 데스크탑 레이아웃 */
-  .header,
-  .navigation,
-  .main,
-  .footer {
-    width: 1000px;
-    margin: 0 auto;
-  }
-  /* 데스크탑 헤더 */
-  .header {
-
-  }
-  /* 데스크탑 내비게이션 */
-  .nav-container {
-    background-color: #988574;
-  }
-  .navigation {
-    height: 10vh;
-  }
-  /* 데스크탑 메인 콘텐츠 */
-  .main {
-    height: 70vh;
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-  }
-  .main > *{
-    flex: auto 0 1;
-  }
-  .recommend-book{
-    flex-basis: 320px;
-  }
-  .news{
-    flex-basis: 660px;
-  }
-  .board{
-    flex-basis: 320px;
-  }
-  .favorite-site{
-    flex-basis: 235px;
-  }
-  .twitter{
-    flex-basis: 405px;
-  }
-
-
-
-  /* 데스크탑 푸터 */
-  .footer-container {
-    background-color: #988574;
-  }
-  .footer {
-    height: 10vh;
-  }
-}
->>>>>>> a142a3433d98d28a2ca9eb40017659e0266e3416
