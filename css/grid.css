@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 @charset "UTF-8";
 .wrapper {
     width: 1000px;
@@ -41,3 +42,42 @@
     grid-row: 3; */
     grid-area: footer;
 }
+=======
+@charset "utf-8";
+
+.wrapper{
+  width: 1000px;
+  margin: 0 auto;
+  background: yellow;
+  display: grid;
+  grid-template-columns: 700px 300px;
+  grid-template-rows: 15vh 70vh 15vh;
+  grid-template-areas: "header header"
+                       "main   ad"
+                       "footer footer";
+}
+.header{
+  background: pink;
+  /* grid-column: 1/ span 2;
+  grid-row: 1/2; */
+  grid-area: header;
+}
+.main{
+  background: lime;
+  /* grid-column: 1;
+  grid-row: 2; */
+  grid-area: main;
+}
+.ad{
+  background: orange;
+  /* grid-column: 2;
+  grid-row: 2; */
+  grid-area: ad;
+}
+.footer{
+  background: skyblue;
+  /* grid-column: 1 / span 2;
+  grid-row: 3; */
+  grid-area: footer;
+}
+>>>>>>> a142a3433d98d28a2ca9eb40017659e0266e3416
