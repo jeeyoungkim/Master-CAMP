@@ -236,9 +236,8 @@ input[name="search"] {
         right: 20px;
         top: 70px;
         overflow: hidden;
-    }
-    .btn-menu-act {
-        background: blue;
+        cursor: pointer;
+        background: transparent;
     }
     .menubar {
         position: absolute;
@@ -271,6 +270,35 @@ input[name="search"] {
         transform: translateY(-50%) rotate(45deg);
     }
     /* 모바일 메인 메뉴*/
+    .menu {
+        background: #000;
+        color: #fff;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 70%;
+        height: 100vh;
+        padding: 20px;
+        transform: translateX(-100%);
+        transition: all 200ms;
+    }
+    .menu-act {
+        transform: translateX(0)!important;
+    }
+    .menu-item {
+        margin-bottom: 10px 0;
+    }
+    .sub-menu {
+        background: green;
+        display: none;
+    }
+    .menu-item-act .sub-menu {
+        display: block!important;
+    }
+    .sub-menu li {
+        margin: 10px 0 10px 20px;
+    }
+    /* 모바일 메인 */
     .main {
         display: flex;
         flex-direction: column;
