@@ -13,7 +13,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    transition: border-radius 500ms 0 ease, background 1000ms 500ms ease-in, transform 500ms 100ms;
+    transition: border-radius 500ms 0ms ease, background 1000ms 500ms ease-in, transform 500ms ease-in-out;
     /* transition-property: border-radius, background, transform;
     transition-duration: 500ms, 1000ms, 500ms;
     transition-delay: 0ms, 500ms, 1000ms;
