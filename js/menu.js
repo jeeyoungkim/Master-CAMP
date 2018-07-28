@@ -6,7 +6,9 @@
 
 //     }
 // });
-
+$(window).resize(function() {
+    location.reload();
+});
 var viewport = window.matchMedia('(max-width: 999px)');
 if (viewport.matches) {
     var nav = $('.navigation');
@@ -61,6 +63,3 @@ if (viewport.matches) {
         menu.removeClass('menu-act');
     });
 }
-window.resize(function() {
-    location.reload();
-});
