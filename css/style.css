@@ -118,6 +118,11 @@
         padding: 5px 5px 5px 10px;
     }
     /* 공통 메인 */
+    /* 공통 메인 섹션 */
+    
+    .main>section {
+        margin-top: 20px;
+    }
     /* 공통 메인 섹션 제목 */
     
     .section-heading {
@@ -183,10 +188,6 @@
         font-size: 1.8em;
         color: #abd375;
     }
-    .recommend-book-summary {
-        background: pink;
-        /* text-align: justify; */
-    }
     /* 공통새소식 */
     
     .news-container {
@@ -197,21 +198,99 @@
         text-align: right;
         margin-top: 10px;
     }
-    /* 지울 배경들.. */
+    /* 공통 게시판 */
     
     .board {
-        background: skyblue;
+        position: relative;
     }
-    .favorite-site {
-        background: teal;
+    .board-list {
+        margin-top: 20px;
     }
-    .twitter {
-        background: tomato;
+    .board-list li {
+        display: flex;
+        justify-content: space-between
+    }
+    .board-list a {
+        /* width: 210px; */
+        width: calc(100% - 110px);
+        white-space: nowrap;
+        /* white-space는 board 값이 flex-basis일 때 먹지 않음 */
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    .board-more {
+        position: absolute;
+        top: 0;
+        right: 0;
+    }
+    .board-more::before {
+        color: hsla(100, 50%, 60%, 1)
+    }
+    /* 공통 인기사이트 */
+    
+    .favorite-site-list {
+        margin-top: 20px;
+        overflow: hidden;
+        counter-reset: 0;
+    }
+    .favorite-site-list li {
+        counter-increment: number;
+        margin-top: 10px;
+    }
+    .favorite-site-list li::before {
+        content: counter(number, decimal);
+        background-color: #F19434;
+        color: #fff;
+        padding: 0 .5em;
+        margin-right: 1em;
+        border-radius: 50%
+    }
+    /* 공통 트위터 */
+    
+    .twitter-wrap {
+        position: relative;
+        padding-right: 25%;
+    }
+    .twitter-user-info {
+        margin-top: 20px;
+    }
+    .twitter-user-name, .twitter-user-id {
+        display: inline;
+    }
+    .twitter-user-name {
+        color: #45ADED;
+    }
+    .twitter-user-id {
+        font-weight: 700;
+    }
+    .twitter-profile {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 25%;
+        padding-left: 1em;
+    }
+    .twitter-thumbnail {
+        border: 1px solid #000;
+        padding: 5px;
+        border-radius: 50%;
+    }
+    .twitter-summary {
+        margin: 10px 0;
+    }
+    .twitter-date {
+        display: block;
+        text-align: right;
     }
     /* 공통 푸터 */
     
     .footer {
-        background: violet;
+        background: #988574;
+        padding: 15px 20px;
+        color: #fff;
+    }
+    .address {
+        margin-bottom: 15px;
     }
     @media screen and (max-width: 999px) {
         /* 모바일 그리드 설정 - 4col */
@@ -374,12 +453,27 @@
         .main {
             display: flex;
             flex-direction: column;
+            padding: 0 20px;
         }
         /* 모바일 추천 서적 */
         .recommend-book-cover {
             width: 70%;
         }
+        /* 모바일 트위터 */
+        .twitter-wrap {
+            min-height: 125px;
+        }
+        .twitter-profile {
+            text-align: right;
+        }
+        /* 모바일 슬로건 */
+        .slogan {
+            display: none;
+        }
         /* 모바일 푸터 */
+        .address span {
+            display: block;
+        }
     }
     @media screen and (min-width: 1000px) {
         /* 데스크탑 그리드 - 12col */
@@ -401,7 +495,7 @@
             font-size: 1.6rem;
         }
         /* 웹카페 데스크탑 레이아웃 */
-        .header, .navigation, .main, .footer {
+        .header, .navigation, .main, .footer, .slogan {
             width: 1000px;
             margin: 0 auto;
         }
@@ -496,21 +590,68 @@
         .recommend-book-cover {
             width: 60%;
         }
+        /* 데스크탑 새소식 */
         .news {
             flex-basis: 660px;
         }
+        /* 데스크탑 게시판 */
         .board {
-            flex-basis: 320px;
+            /* flex-basis: 320px; - white-space가 안먹어서 없앰.*/
+            width: 320px;
         }
+        /* 데스크탑 인기사이트 */
         .favorite-site {
             flex-basis: 235px;
+            order: 1;
         }
+        /* 데스크탑 트위터 */
         .twitter {
             flex-basis: 405px;
+        }
+        .twitter-wrap {
+            min-height: 100px;
+        }
+        /* 데스크탑 슬로건 */
+        .slogan {
+            position: relative;
+        }
+        .slogan-heading {
+            width: 110px;
+            height: 83px;
+            position: absolute;
+            left: 35px;
+            bottom: -25px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .slogan-heading::after {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background: url("images/coffee.png") no-repeat;
+        }
+        .slogan-content {
+            padding: 10px 50px 10px 165px;
+        }
+        .slogan-content q {
+            font-weight: 700;
+        }
+        .slogan-content q::before {
+            content: '"';
+            font-size: 3rem;
+            font-weight: 700;
+            position: relative;
+            top: 8px;
         }
         /* 데스크탑 푸터 */
         .footer-container {
             background-color: #988574;
         }
-        .footer {}
+        .footer {
+            text-align: center;
+        }
     }
